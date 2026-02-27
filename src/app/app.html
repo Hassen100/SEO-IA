@@ -1,0 +1,65 @@
+<app-header #header (cartToggle)="openCart()"></app-header>
+
+<main class="main-content">
+  <section id="accueil" class="hero">
+    <div class="container">
+      <h1>Bienvenue dans notre magasin de jeux</h1>
+      <p>Découvrez notre sélection de jeux vidéo exceptionnels</p>
+      <button class="cta-button" (click)="scrollToJeux()">Voir les jeux</button>
+    </div>
+  </section>
+
+  <section id="jeux" class="games-section">
+    <div class="container">
+      <h2>Nos Jeux</h2>
+      <div class="games-grid">
+        <app-game-card 
+          *ngFor="let game of games" 
+          [game]="game">
+        </app-game-card>
+      </div>
+    </div>
+  </section>
+
+  <section id="auth" class="auth-section">
+    <div class="container">
+      <app-auth></app-auth>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p>📍 Adresse: 123 Rue des Jeux, 75000 Paris</p>
+        <p>📧 Email: contact@gamestore.fr</p>
+        <p>📞 Téléphone: 01 23 45 67 89</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🎮 GameStore</h3>
+        <p>Votre magasin de jeux vidéo de confiance</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>contact@gamestore.fr</p>
+      </div>
+      <div class="footer-section">
+        <h4>Horaires</h4>
+        <p>Lun-Ven: 10h-19h</p>
+        <p>Sam-Dim: 10h-18h</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 GameStore. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+<app-shopping-cart #cart></app-shopping-cart>

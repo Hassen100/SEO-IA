@@ -1,0 +1,55 @@
+<div class="auth-container" *ngIf="!isAuthenticated">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>🎮 Connexion</h2>
+      <p>Connectez-vous à votre compte GameStore</p>
+    </div>
+    
+    <form class="auth-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          [(ngModel)]="username" 
+          required 
+          placeholder="Entrez votre nom d'utilisateur">
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          [(ngModel)]="password" 
+          required 
+          placeholder="Entrez votre mot de passe">
+      </div>
+      
+      <div class="form-error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      
+      <button type="submit" class="auth-btn" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Se connecter</span>
+        <span *ngIf="isLoading">Connexion...</span>
+      </button>
+    </form>
+    
+    <div class="auth-info">
+      <p><strong>Identifiants de test :</strong></p>
+      <p>Nom d'utilisateur: <code>admin</code></p>
+      <p>Mot de passe: <code>password</code></p>
+    </div>
+  </div>
+</div>
+
+<div class="auth-welcome" *ngIf="isAuthenticated">
+  <div class="welcome-card">
+    <h2>👋 Bienvenue {{ currentUser }}!</h2>
+    <p>Vous êtes maintenant connecté à GameStore</p>
+    <button class="logout-btn" (click)="logout()">Se déconnecter</button>
+  </div>
+</div>

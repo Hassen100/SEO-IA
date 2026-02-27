@@ -1,0 +1,12 @@
+<div class="game-card">
+  <div class="game-image">
+    <img [src]="game.image" [alt]="game.name">
+  </div>
+  <div class="game-info">
+    <h3 class="game-name">{{ game.name }}</h3>
+    <p class="game-price">{{ game.price | currency:'EUR' }}</p>
+    <button class="add-to-cart-btn" (click)="addToCart()">
+      Ajouter au panier
+    </button>
+  </div>
+</div>

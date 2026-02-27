@@ -1,0 +1,33 @@
+<div class="shopping-cart" *ngIf="isOpen">
+  <div class="cart-overlay" (click)="closeCart()"></div>
+  <div class="cart-content">
+    <div class="cart-header">
+      <h2>🛒 Votre Panier</h2>
+      <button class="close-btn" (click)="closeCart()">✕</button>
+    </div>
+    
+    <div class="cart-items">
+      <div *ngIf="items.length === 0" class="empty-cart">
+        Votre panier est vide
+      </div>
+      
+      <div *ngFor="let item of items" class="cart-item">
+        <div class="item-info">
+          <h4>{{ item.game.name }}</h4>
+          <p>{{ item.game.price | currency:'EUR' }} x {{ item.quantity }}</p>
+        </div>
+        <div class="item-total">
+          {{ (item.game.price * item.quantity) | currency:'EUR' }}
+        </div>
+        <button class="remove-btn" (click)="removeItem(item.game.id)">✕</button>
+      </div>
+    </div>
+    
+    <div class="cart-footer" *ngIf="items.length > 0">
+      <div class="cart-total">
+        <strong>Total: {{ totalPrice | currency:'EUR' }}</strong>
+      </div>
+      <button class="checkout-btn">Commander</button>
+    </div>
+  </div>
+</div>

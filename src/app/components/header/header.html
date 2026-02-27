@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <h1>🎮 GameStore</h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#accueil" class="nav-link">Accueil</a></li>
+          <li><a href="#jeux" class="nav-link">Jeux</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#auth" class="nav-link">Connexion</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon">
+        <button class="cart-btn" (click)="toggleCart()">
+          🛒 Panier ({{ totalItems }})
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
