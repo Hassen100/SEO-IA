@@ -47,7 +47,8 @@
             "outputMode": "static",
             "ssr": false,
             "baseHref": "/SEO-IA/",
-            "deployUrl": "/SEO-IA/"
+            "deployUrl": "/SEO-IA/",
+            "index": "index.html"
           },
           "configurations": {
             "production": {
