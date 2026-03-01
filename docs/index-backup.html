@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magasin de Jeux Vidéo</title>
+    <link rel="stylesheet" href="styles-5INURTSO.css">
+    <style>
+        /* Styles spécifiques à la page d'accueil */
+        .auth-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .auth-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .auth-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .auth-form h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-link {
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .main-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo-icon.svg" alt="Magasin de Jeux Logo" class="logo-img">
+                    <h1>Magasin de Jeux</h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="/" class="nav-link active">Accueil</a></li>
+                        <li><a href="jeux.html" class="nav-link">Jeux</a></li>
+                    </ul>
+                </nav>
+                <div class="cart-icon">
+                    <button class="cart-btn">
+                        🛒 Panier (0)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Section Authentification -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-form">
+                        <h2>🔐 Connexion</h2>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Entrez votre email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Se connecter</button>
+                        </form>
+                        <p class="auth-switch">
+                            Pas encore de compte ? 
+                            <button class="btn-link" onclick="showInscription()">S'inscrire</button>
+                        </p>
+                    </div>
+                    <div class="auth-form" id="inscriptionForm" style="display: none;">
+                        <h2>📝 Inscription</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="inscr-email">Email</label>
+                                <input type="email" id="inscr-email" placeholder="Entrez votre email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inscr-password">Mot de passe</label>
+                                <input type="password" id="inscr-password" placeholder="Créez votre mot de passe" required>
+                            </div>
+                            <button type="submit" class="btn-primary">S'inscrire</button>
+                        </form>
+                        <p class="auth-switch">
+                            Déjà un compte ? 
+                            <button class="btn-link" onclick="showConnexion()">Se connecter</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Titre Principal -->
+        <section class="hero-section">
+            <div class="container">
+                <!-- Titre et sous-titre supprimés -->
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section class="contact-section">
+            <div class="container">
+                <h2>📞 Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>📧 Email</h3>
+                        <p>hassenselmi2019@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>📱 Téléphone</h3>
+                        <p>26835980</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>📍 Adresse</h3>
+                        <p>RUE KOUFA MONASTIR 5000</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>💬 Envoyez-nous un message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Votre message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Magasin de Jeux Vidéo. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fonctions d'authentification
+        function showInscription() {
+            const loginForm = document.querySelector('.auth-form:first-child');
+            const inscriptionForm = document.getElementById('inscriptionForm');
+            
+            loginForm.style.display = 'none';
+            inscriptionForm.style.display = 'block';
+        }
+
+        function showConnexion() {
+            const loginForm = document.querySelector('.auth-form:first-child');
+            const inscriptionForm = document.getElementById('inscriptionForm');
+            
+            loginForm.style.display = 'block';
+            inscriptionForm.style.display = 'none';
+        }
+
+        // Gestion du formulaire de connexion
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                alert('Connexion réussie ! Bienvenue ' + email);
+                showConnexion();
+            } else {
+                alert('Veuillez remplir tous les champs');
+            }
+        });
+
+        // Gestion du formulaire d'inscription
+        document.querySelector('#inscriptionForm form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('inscr-email').value;
+            const password = document.getElementById('inscr-password').value;
+            
+            if (email && password) {
+                alert('Inscription réussie ! Bienvenue ' + email);
+                showConnexion();
+            } else {
+                alert('Veuillez remplir tous les champs');
+            }
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nom = document.getElementById('nom').value;
+            const message = document.getElementById('message').value;
+            
+            if (nom && message) {
+                alert('Message envoyé avec succès ! Nous vous répondrons rapidement.');
+                document.getElementById('nom').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('Veuillez remplir tous les champs');
+            }
+        });
+    </script>
+</body>
+</html>
