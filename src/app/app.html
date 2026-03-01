@@ -6,9 +6,65 @@
       <img src="assets/hero-banner.svg" alt="Hero Banner" class="hero-image">
     </div>
     <div class="container">
-      <h1>Bienvenue dans notre magasin de jeux</h1>
-      <p>Découvrez notre sélection de jeux vidéo exceptionnels</p>
+      <h1>Bienvenue dans SEO-IA Gaming Store</h1>
+      <p>Découvrez notre sélection de jeux vidéo exceptionnels avec les meilleurs prix</p>
       <button class="cta-button" (click)="scrollToJeux()">Voir les jeux</button>
+    </div>
+  </section>
+
+  <section id="accueil-info" class="accueil-info-section">
+    <div class="container">
+      <div class="info-banner">
+        <img src="assets/gaming-banner.svg" alt="Gaming Banner" class="info-image">
+      </div>
+      <h2>Pourquoi choisir SEO-IA Gaming Store ?</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="card-banner">
+            <img src="assets/price-banner.svg" alt="Price Banner" class="card-image">
+          </div>
+          <h3>💰 Prix Compétitifs</h3>
+          <p>Les meilleurs prix garantis pour tous nos jeux</p>
+        </div>
+        <div class="info-card">
+          <div class="card-banner">
+            <img src="assets/delivery-banner.svg" alt="Delivery Banner" class="card-image">
+          </div>
+          <h3>🚀 Livraison Rapide</h3>
+          <p>Téléchargement instantané après achat</p>
+        </div>
+        <div class="info-card">
+          <h3>🎮 Meilleurs Jeux</h3>
+          <p>Sélection rigoureuse des meilleurs titres du marché</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-info" class="contact-info-section">
+    <div class="container">
+      <div class="contact-banner">
+        <img src="assets/partners-banner.svg" alt="Partners Banner" class="contact-image">
+      </div>
+      <h2>Contactez-nous</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>📍 Adresse</h3>
+          <p>123 Rue des Jeux, 75000 Paris</p>
+        </div>
+        <div class="contact-card">
+          <h3>📧 Email</h3>
+          <p>contact@seo-ia-gaming.fr</p>
+        </div>
+        <div class="contact-card">
+          <h3>📞 Téléphone</h3>
+          <p>01 23 45 67 89</p>
+        </div>
+        <div class="contact-card">
+          <h3>🕐 Horaires</h3>
+          <p>24/7 - Service client disponible</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -17,32 +73,12 @@
       <div class="revenue-banner">
         <img src="assets/revenue-banner.svg" alt="Revenue Banner" class="revenue-image">
       </div>
-      <h2>Nos Jeux</h2>
+      <h2>Notre Magasin de Jeux</h2>
       <div class="games-grid">
         <app-game-card 
           *ngFor="let game of games" 
           [game]="game">
         </app-game-card>
-      </div>
-    </div>
-  </section>
-
-  <section id="auth" class="auth-section">
-    <div class="container">
-      <app-auth></app-auth>
-    </div>
-  </section>
-
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="contact-banner">
-        <img src="assets/partners-banner.svg" alt="Partners Banner" class="contact-image">
-      </div>
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <p>📍 Adresse: 123 Rue des Jeux, 75000 Paris</p>
-        <p>📧 Email: contact@gamestore.fr</p>
-        <p>📞 Téléphone: 01 23 45 67 89</p>
       </div>
     </div>
   </section>

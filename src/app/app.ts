@@ -18,45 +18,24 @@ export class App implements AfterViewInit {
   games: Game[] = [
     {
       id: 1,
-      name: 'The Legend of Zelda: Tears of the Kingdom',
-      price: 59.99,
-      image: 'https://picsum.photos/seed/zelda/300/200',
-      description: 'Aventure épique dans le royaume d\'Hyrule'
+      name: 'FIFA 2024',
+      price: 69.99,
+      image: 'https://picsum.photos/seed/fifa2024/300/200',
+      description: 'Le meilleur jeu de football avec des graphiques ultra-réalistes'
     },
     {
       id: 2,
-      name: 'Elden Ring',
-      price: 49.99,
-      image: 'https://picsum.photos/seed/eldenring/300/200',
-      description: 'RPG action dans un monde ouvert'
+      name: 'Call of Duty Modern Warfare III',
+      price: 79.99,
+      image: 'https://picsum.photos/seed/codmw3/300/200',
+      description: 'Action intense et multijoueur compétitif'
     },
     {
       id: 3,
-      name: 'God of War Ragnarök',
-      price: 69.99,
-      image: 'https://picsum.photos/seed/godofwar/300/200',
-      description: 'Aventure mythologique nordique'
-    },
-    {
-      id: 4,
-      name: 'Hogwarts Legacy',
-      price: 54.99,
-      image: 'https://picsum.photos/seed/hogwarts/300/200',
-      description: 'Magie et aventures à Poudlard'
-    },
-    {
-      id: 5,
-      name: 'Spider-Man 2',
-      price: 64.99,
-      image: 'https://picsum.photos/seed/spiderman/300/200',
-      description: 'Aventure super-héroïque à New York'
-    },
-    {
-      id: 6,
-      name: 'Starfield',
-      price: 59.99,
-      image: 'https://picsum.photos/seed/starfield/300/200',
-      description: 'Exploration spatiale et aventure'
+      name: 'Grand Theft Auto VI',
+      price: 89.99,
+      image: 'https://picsum.photos/seed/gta6/300/200',
+      description: 'Monde ouvert ultime avec une liberté totale'
     }
   ];
 
