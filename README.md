@@ -1,30 +1,27 @@
-# SEO-IA 🚀
+# SEO-IA 🎮
 
-Un projet Angular complet avec magasin de jeux, système d'authentification et dashboard SEO.
+Un magnifique magasin de jeux vidéo en ligne avec panier d'achat et authentification.
+
+## 🌐 Déploiement
+
+**Site en ligne** : https://hassen100.github.io/SEO-IA/
 
 ## 🎮 Fonctionnalités
 
-- **Magasin de jeux** avec panier d'achat
-- **Système d'authentification** complet
-- **Dashboard SEO** avec statistiques
-- **Design responsive** moderne
-- **Frontend-only** (pas de backend)
+- 🛒 **Panier d'achat** fonctionnel
+- 🔐 **Authentification** complète
+- 🎮 **Catalogue de jeux** interactif
+- 📱 **Design responsive** mobile/desktop
+- ⚡ **Performance** optimisée
 
 ## 🛠️ Technologies
 
 - **Angular 21** avec TypeScript
-- **CSS3** moderne et responsive
-- **Chart.js** pour les graphiques
+- **CSS3** moderne et animations
 - **LocalStorage** pour la persistance
+- **GitHub Pages** pour l'hébergement
 
-## 🚀 Déploiement
-
-Ce projet est déployé automatiquement sur GitHub Pages via GitHub Actions.
-
-### URL du site
-https://hassen100.github.io/SEO-IA/
-
-## 📦 Installation locale
+## 🚀 Installation locale
 
 ```bash
 # Cloner le repository
@@ -42,40 +39,29 @@ L'application sera disponible sur `http://localhost:4200/`
 
 ## 🔐 Identifiants de test
 
-Pour l'authentification :
 - **Nom d'utilisateur** : `admin`
 - **Mot de passe** : `password`
 
 ## 📱 Pages
 
-- **Accueil** : Page principale avec hero section
-- **Jeux** : Catalogue de jeux avec panier
+- **Accueil** : Hero section avec bannière
+- **Jeux** : Catalogue avec panier
 - **Authentification** : Connexion/Déconnexion
-- **Dashboard** : Statistiques et graphiques
 - **Contact** : Informations de contact
 
 ## 🎨 Design
 
 - Interface moderne avec dégradés
-- Animations fluides
-- Responsive mobile/desktop
-- Accessibilité WCAG
-
-## 📊 Dashboard SEO
-
-- Statistiques en temps réel
-- Graphiques interactifs
-- Tableau de bord complet
-- Analyseur d'URL
+- Animations fluides et transitions
+- Responsive design complet
+- Icônes et bannières intégrées
 
 ## 🤝 Contribuer
 
-Les contributions sont les bienvenues ! 
-
 1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push sur la branche (`git push origin feature/AmazingFeature`)
+2. Créer une branche (`git checkout -b feature/NomFeature`)
+3. Commit les changements (`git commit -m 'Ajout de NomFeature'`)
+4. Push sur la branche (`git push origin feature/NomFeature`)
 5. Ouvrir une Pull Request
 
 ## 📄 Licence

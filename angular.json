@@ -33,14 +33,20 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets"
               }
             ],
             "prerender": false,
             "styles": [
               "src/styles.css"
             ],
+            "outputPath": "docs",
             "outputMode": "static",
-            "ssr": false
+            "ssr": false,
+            "baseHref": "/SEO-IA/"
           },
           "configurations": {
             "production": {

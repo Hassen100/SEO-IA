@@ -1,28 +1,28 @@
 @echo off
 echo ====================================
-echo   DEPLOIEMENT GITHUB PAGES
+echo   DEPLOIEMENT GITHUB PAGES - METHODE DOCS
 echo ====================================
 echo.
 
 cd /d "C:\Users\VIP INFO\Desktop\magasin-jeux"
 
-echo [1/7] Initialisation de Git...
+echo [1/6] Build pour GitHub Pages...
+ng build --configuration production
+
+echo [2/6] Initialisation de Git...
 git init
 
-echo [2/7] Ajout des fichiers...
+echo [3/6] Ajout des fichiers...
 git add .
 
-echo [3/7] Creation du commit...
-git commit -m "Initial commit - SEO-IA Angular Project"
+echo [4/6] Creation du commit...
+git commit -m "Deploy SEO-IA to GitHub Pages"
 
-echo [4/7] Connexion au repository GitHub...
+echo [5/6] Connexion au repository GitHub...
 git remote add origin https://github.com/Hassen100/SEO-IA.git
 
-echo [5/7] Configuration de la branche main...
-git branch -M main
-
-echo [6/7] Premier push sur GitHub...
-git push -u origin main
+echo [6/6] Push sur GitHub...
+git push -u origin main --force
 
 echo.
 echo ====================================
@@ -35,7 +35,9 @@ echo.
 echo ETAPE SUIVANTE:
 echo 1. Allez sur https://github.com/Hassen100/SEO-IA
 echo 2. Settings > Pages
-echo 3. Source: GitHub Actions
-echo 4. Patientez 2-5 minutes
+echo 3. Source: Deploy from a branch
+echo 4. Branch: main
+echo 5. Folder: /docs
+echo 6. Save
 echo.
 pause

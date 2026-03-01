@@ -17,6 +17,18 @@
   align-items: center;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
 .logo h1 {
   margin: 0;
   font-size: 1.8rem;
