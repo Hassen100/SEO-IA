@@ -91,6 +91,18 @@ html {
   background: white;
 }
 
+.revenue-banner {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.revenue-image {
+  width: 300px;
+  height: 150px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
 .games-section h2 {
   text-align: center;
   font-size: 2.5rem;
@@ -114,6 +126,18 @@ html {
 .contact-section {
   padding: 60px 0;
   background: #f8f9fa;
+}
+
+.contact-banner {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-image {
+  width: 200px;
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .contact-section h2 {
