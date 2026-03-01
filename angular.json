@@ -46,7 +46,8 @@
             "outputPath": "docs",
             "outputMode": "static",
             "ssr": false,
-            "baseHref": "/SEO-IA/"
+            "baseHref": "/SEO-IA/",
+            "deployUrl": "/SEO-IA/"
           },
           "configurations": {
             "production": {
