@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard SEO/IA - Analytics & Search Console</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h1>SEO/IA Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="refresh-btn" class="btn btn-primary">
+                        <i class="fas fa-sync-alt"></i> Actualiser
+                    </button>
+                    <select id="period-select" class="period-select">
+                        <option value="7">7 derniers jours</option>
+                        <option value="14">14 derniers jours</option>
+                        <option value="30">30 derniers jours</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Chargement des données...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Erreur de chargement</h3>
+                <p id="error-message">Impossible de charger les données. Veuillez réessayer.</p>
+                <button onclick="loadDashboardData()" class="btn btn-primary">Réessayer</button>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div id="dashboard-content" class="dashboard-content" style="display: none;">
+                <!-- KPI Cards -->
+                <section class="kpi-section">
+                    <h2><i class="fas fa-tachometer-alt"></i> Indicateurs Clés</h2>
+                    <div class="kpi-grid">
+                        <!-- GA4 KPIs -->
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-users"></i>
+                                <span>Visiteurs</span>
+                            </div>
+                            <div class="kpi-value" id="total-users">-</div>
+                            <div class="kpi-change" id="users-change">-</div>
+                        </div>
+                        
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-eye"></i>
+                                <span>Pages Vues</span>
+                            </div>
+                            <div class="kpi-value" id="total-pageviews">-</div>
+                            <div class="kpi-change" id="pageviews-change">-</div>
+                        </div>
+                        
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-percentage"></i>
+                                <span>Taux de Rebond</span>
+                            </div>
+                            <div class="kpi-value" id="bounce-rate">-</div>
+                            <div class="kpi-change" id="bounce-change">-</div>
+                        </div>
+                        
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-heart"></i>
+                                <span>Engagement</span>
+                            </div>
+                            <div class="kpi-value" id="engagement-rate">-</div>
+                            <div class="kpi-change" id="engagement-change">-</div>
+                        </div>
+                        
+                        <!-- GSC KPIs -->
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-mouse-pointer"></i>
+                                <span>Clics Organiques</span>
+                            </div>
+                            <div class="kpi-value" id="total-clicks">-</div>
+                            <div class="kpi-change" id="clicks-change">-</div>
+                        </div>
+                        
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-search"></i>
+                                <span>Impressions</span>
+                            </div>
+                            <div class="kpi-value" id="total-impressions">-</div>
+                            <div class="kpi-change" id="impressions-change">-</div>
+                        </div>
+                        
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-percentage"></i>
+                                <span>CTR</span>
+                            </div>
+                            <div class="kpi-value" id="avg-ctr">-</div>
+                            <div class="kpi-change" id="ctr-change">-</div>
+                        </div>
+                        
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-ranking-star"></i>
+                                <span>Position Moyenne</span>
+                            </div>
+                            <div class="kpi-value" id="avg-position">-</div>
+                            <div class="kpi-change" id="position-change">-</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charts Section -->
+                <section class="charts-section">
+                    <div class="charts-grid">
+                        <!-- Traffic Evolution Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="fas fa-chart-line"></i> Évolution du Trafic</h3>
+                                <div class="chart-controls">
+                                    <button class="chart-btn active" data-chart="traffic" data-metric="users">Visiteurs</button>
+                                    <button class="chart-btn" data-chart="traffic" data-metric="pageviews">Pages Vues</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="traffic-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Top Pages Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="fas fa-file-alt"></i> Pages les Plus Consultées</h3>
+                                <div class="chart-controls">
+                                    <button class="chart-btn active" data-chart="pages" data-source="ga4">GA4</button>
+                                    <button class="chart-btn" data-chart="pages" data-source="gsc">Search Console</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="pages-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Traffic Sources Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="fas fa-globe"></i> Sources de Trafic</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="sources-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Top Queries Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3><i class="fas fa-search"></i> Mots-Clés Performants</h3>
+                                <div class="chart-controls">
+                                    <button class="chart-btn active" data-chart="queries" data-metric="clicks">Clics</button>
+                                    <button class="chart-btn" data-chart="queries" data-metric="impressions">Impressions</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="queries-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendations Section -->
+                <section class="recommendations-section">
+                    <h2><i class="fas fa-lightbulb"></i> Recommandations SEO</h2>
+                    <div class="recommendations-grid">
+                        <div class="recommendations-card">
+                            <div class="recommendations-header">
+                                <h3>Recommandations Prioritaires</h3>
+                                <span class="recommendations-count" id="recommendations-count">0</span>
+                            </div>
+                            <div class="recommendations-list" id="recommendations-list">
+                                <!-- Recommendations will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Tables Section -->
+                <section class="tables-section">
+                    <div class="tables-grid">
+                        <!-- Top Pages Table -->
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3><i class="fas fa-file-alt"></i> Pages les Plus Consultées</h3>
+                                <button class="btn btn-sm" onclick="exportData('pages')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                            <div class="table-container">
+                                <table id="pages-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Page</th>
+                                            <th>Pages Vues</th>
+                                            <th>Visiteurs</th>
+                                            <th>Taux de Rebond</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="pages-table-body">
+                                        <!-- Data will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Top Queries Table -->
+                        <div class="table-card">
+                            <div class="table-header">
+                                <h3><i class="fas fa-search"></i> Mots-Clés Performants</h3>
+                                <button class="btn btn-sm" onclick="exportData('queries')">
+                                    <i class="fas fa-download"></i> Exporter
+                                </button>
+                            </div>
+                            <div class="table-container">
+                                <table id="queries-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Requête</th>
+                                            <th>Clics</th>
+                                            <th>Impressions</th>
+                                            <th>CTR</th>
+                                            <th>Position</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="queries-table-body">
+                                        <!-- Data will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SEO/IA Dashboard. Données mises à jour en temps réel.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
