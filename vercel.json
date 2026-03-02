@@ -3,58 +3,58 @@
   "name": "magasin-jeux",
   "builds": [
     {
-      "src": "index.html",
+      "src": "docs/browser/index.html",
       "use": "@vercel/static"
     },
     {
-      "src": "jeux.html", 
+      "src": "docs/browser/main-R2B7NSCW.js",
       "use": "@vercel/static"
     },
     {
-      "src": "styles.css",
+      "src": "docs/browser/styles-5INURTSO.css",
       "use": "@vercel/static"
     },
     {
-      "src": "main-DZRALYVG.js",
+      "src": "docs/browser/favicon.ico",
       "use": "@vercel/static"
     },
     {
-      "src": "favicon.ico",
+      "src": "docs/browser/logo-icon.svg",
       "use": "@vercel/static"
     },
     {
-      "src": "logo-icon.svg",
+      "src": "docs/browser/googlea6617c895422e02d.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
-      "dest": "/index.html"
+      "dest": "/docs/browser/index.html"
     },
     {
-      "src": "/jeux",
-      "dest": "/jeux.html"
+      "src": "/index.html",
+      "dest": "/docs/browser/index.html"
     },
     {
-      "src": "/jeux.html",
-      "dest": "/jeux.html"
+      "src": "/main-R2B7NSCW.js",
+      "dest": "/docs/browser/main-R2B7NSCW.js"
     },
     {
-      "src": "/styles.css",
-      "dest": "/styles.css"
-    },
-    {
-      "src": "/main-DZRALYVG.js",
-      "dest": "/main-DZRALYVG.js"
+      "src": "/styles-5INURTSO.css",
+      "dest": "/docs/browser/styles-5INURTSO.css"
     },
     {
       "src": "/favicon.ico",
-      "dest": "/favicon.ico"
+      "dest": "/docs/browser/favicon.ico"
     },
     {
       "src": "/logo-icon.svg",
-      "dest": "/logo-icon.svg"
+      "dest": "/docs/browser/logo-icon.svg"
+    },
+    {
+      "src": "/googlea6617c895422e02d.html",
+      "dest": "/docs/browser/googlea6617c895422e02d.html"
     },
     {
       "src": "/public/(.*)",
